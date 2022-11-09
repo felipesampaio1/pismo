@@ -1,0 +1,8 @@
+spring:
+  jpa:
+    properties:
+      hibernate.globally_quoted_identifiers: true
+      hibernate.format_sql: true
+    show-sql: false
+  h2:
+    console.enabled: true
