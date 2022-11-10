@@ -27,9 +27,19 @@ public class AccountService {
 
     public AccountDTO getAccountById(Long accountId) {
 
-        Account account = accountRepository.findById(accountId)
-                .orElseThrow(() -> new EntityNotFoundException("Conta não localizada"));
+        Account account = getAccount(accountId);
 
         return mapper.mapTo(account, AccountDTO.class);
+    }
+
+    public Account findAccountByIdIfExits(Long accountId) {
+
+        return getAccount(accountId);
+    }
+
+    private Account getAccount(Long accountId) {
+
+        return accountRepository.findById(accountId)
+                .orElseThrow(() -> new EntityNotFoundException("Conta não localizada"));
     }
 }

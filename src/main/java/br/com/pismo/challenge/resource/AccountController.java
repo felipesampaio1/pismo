@@ -31,7 +31,7 @@ public class AccountController {
 
     @GetMapping("/{accountId}")
     public ResponseEntity<AccountDTO> getAccount(@PathVariable Long accountId){
-        log.debug("REST POST to create account");
+        log.debug("REST GET to account by id");
 
         return ResponseEntity.ok(accountService.getAccountById(accountId));
     }

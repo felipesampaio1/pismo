@@ -22,6 +22,7 @@ public abstract class AbstractAuditingEntity {
     private LocalDateTime createdAt;
 
     @LastModifiedDate
+    @JsonIgnore
     private LocalDateTime eventDate;
 
 }

@@ -7,7 +7,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ErrorEnum {
 
-    ENTITY_NOT_FOUND("Entidade Não encontrada");
+    ACCOUNT_NOT_FOUND("Conta Não Encontrada"),
+    OPERATIONAL_TYPE_NOT_FOUND("Operational Type Não encontrado");
 
-    private String title;
+    private String message;
 }

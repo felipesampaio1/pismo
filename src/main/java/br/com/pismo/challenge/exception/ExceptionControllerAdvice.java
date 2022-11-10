@@ -21,14 +21,26 @@ public class ExceptionControllerAdvice extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleEntityNotFound(EntityNotFoundException ex, NativeWebRequest request) {
 
         Problem problem = Problem.builder()
-                .error(ErrorEnum.ENTITY_NOT_FOUND)
-                .message(ErrorEnum.ENTITY_NOT_FOUND.getTitle())
+                .error(ErrorEnum.ACCOUNT_NOT_FOUND)
+                .message(ErrorEnum.ACCOUNT_NOT_FOUND.getMessage())
                 .status(HttpStatus.NOT_FOUND)
                 .build();
 
         return handleExceptionInternal(ex, problem, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
+
+    @ExceptionHandler(OperationalTypeException.class)
+    public ResponseEntity<Object> handleEntityNotFound(OperationalTypeException ex, NativeWebRequest request) {
+
+        Problem problem = Problem.builder()
+                .error(ErrorEnum.OPERATIONAL_TYPE_NOT_FOUND)
+                .message(ErrorEnum.OPERATIONAL_TYPE_NOT_FOUND.getMessage())
+                .status(HttpStatus.NOT_FOUND)
+                .build();
+
+        return handleExceptionInternal(ex, problem, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+    }
 
 
     @Builder

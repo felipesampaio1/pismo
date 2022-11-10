@@ -1,4 +1,10 @@
 spring:
+  datasource:
+    url: jdbc:h2:mem:pismo
+    username: sa
+    password: pass
+    driverClassName: org.h2.Driver
+
   jpa:
     properties:
       hibernate.globally_quoted_identifiers: true

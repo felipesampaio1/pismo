@@ -1,17 +1,20 @@
 package br.com.pismo.challenge.model;
 
 
-import br.com.pismo.challenge.enumeration.OperationType;
+import br.com.pismo.challenge.enumeration.OperationTypeEnum;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 
 @Entity
@@ -19,6 +22,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Transaction extends AbstractAuditingEntity{
 
     @Id
@@ -27,6 +31,9 @@ public class Transaction extends AbstractAuditingEntity{
 
     private BigDecimal amount;
 
-    @Enumerated
-    private OperationType operationType;
+    @Enumerated(value = EnumType.ORDINAL)
+    private OperationTypeEnum operationType;
+
+    @ManyToOne
+    private Account account;
 }
