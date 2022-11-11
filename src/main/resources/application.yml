@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: container
 
 server:
   servlet:
@@ -9,4 +9,4 @@ server:
 
 logging:
   level:
-    br.com.pismo.challenge: DEBUG
+    br.com.pismo.challenge: INFO

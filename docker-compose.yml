@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  pismo:
+    container_name: challenge
+    restart: always
+    build: .
+    ports:
+      - "8080:8080"
+    links:
+      - postgresdb
+    networks:
+      network:
+
+  postgresdb:
+    restart: always
+    image: postgres:13.1
+    container_name: postgresdb
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test # Apenas para efeito de teste
+      POSTGRES_DB: pismo
+    networks:
+      network:
+
+networks:
+  network:
