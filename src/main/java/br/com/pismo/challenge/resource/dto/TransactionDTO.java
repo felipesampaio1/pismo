@@ -29,11 +29,14 @@ public class TransactionDTO {
     @NotNull
     private BigDecimal amount;
 
+    private BigDecimal availableCreditLimit;
+
     public static TransactionDTO fill(Transaction transaction) {
         return TransactionDTO.builder()
                 .accountId(transaction.getAccount().getId())
                 .operationTypeId(transaction.getOperationType().getId())
                 .amount(transaction.getAmount())
+                .availableCreditLimit(transaction.getAccount().getAvailableCreditLimit())
                 .build();
     }
 }

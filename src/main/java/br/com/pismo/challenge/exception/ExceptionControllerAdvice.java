@@ -42,6 +42,17 @@ public class ExceptionControllerAdvice extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, problem, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
+    @ExceptionHandler(InsufficientFundsException.class)
+    public ResponseEntity<Object> handleEntityNotFound(InsufficientFundsException ex, NativeWebRequest request) {
+
+        Problem problem = Problem.builder()
+                .error(ErrorEnum.INSUFFICIENT_FUNDS)
+                .message(ErrorEnum.INSUFFICIENT_FUNDS.getMessage())
+                .status(HttpStatus.CONFLICT)
+                .build();
+
+        return handleExceptionInternal(ex, problem, new HttpHeaders(), HttpStatus.CONFLICT, request);
+    }
 
     @Builder
     @Data

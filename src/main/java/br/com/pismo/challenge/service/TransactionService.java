@@ -25,9 +25,11 @@ public class TransactionService {
 
         Transaction transaction = Transaction.builder()
                 .account(account)
-                .amount(transactionDTO.getAmount())
+                .amount(operationType.isNegate() ? transactionDTO.getAmount().negate() : transactionDTO.getAmount())
                 .operationType(operationType)
                 .build();
+
+        accountService.setNewLimit(account, transaction);
 
         return TransactionDTO.fill(transactionRepository.save(transaction));
     }

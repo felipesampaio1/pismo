@@ -41,6 +41,16 @@ public class DataTest {
                 .build();
     }
 
+    public Account getAccountSavedWithFunds(){
+        return Account.builder()
+                .id(1L)
+                .documentNumber("12345678900")
+                .availableCreditLimit(new BigDecimal("5000"))
+                .build();
+    }
+
+
+
     public String asJsonString(final Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);

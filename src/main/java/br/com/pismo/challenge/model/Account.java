@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 @Entity
 @AllArgsConstructor
@@ -31,4 +32,5 @@ public class Account {
     @Column(unique = true, nullable = false)
     private String documentNumber;
 
+    private BigDecimal availableCreditLimit = new BigDecimal("5000");
 }

@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: container
+    active: dev
 
 server:
   servlet:

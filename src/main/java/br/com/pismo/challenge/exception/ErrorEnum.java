@@ -8,7 +8,8 @@ import lombok.Getter;
 public enum ErrorEnum {
 
     ACCOUNT_NOT_FOUND("Conta Não Encontrada"),
-    OPERATIONAL_TYPE_NOT_FOUND("Operational Type Não encontrado");
+    OPERATIONAL_TYPE_NOT_FOUND("Operational Type Não encontrado"),
+    INSUFFICIENT_FUNDS("Saldo Insuficente");
 
     private String message;
 }
